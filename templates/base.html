@@ -1,0 +1,31 @@
+{% extends "bootstrap/base.html" %}
+
+{% block head %}
+    {{ super() }}
+    <style>
+        body {background-color: #8ac8ff;}
+        .container {background-color: #fff;}
+        .alert {margin-top: 10px;}
+    </style>
+{% endblock %}
+
+{% block title %}Orcumo App{% endblock %}
+
+{% block content %}
+<div class="container">
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-{{ alert_type }}">
+        <button type="button" class="close" data-dismiss='alert'>&times;</button>
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% block header %}
+    {% endblock %}
+    <div class="panel panel-default">
+        <div class="panel-body">
+        {% block panel_content %}
+        {% endblock %}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,3 +1,12 @@
-{% extends "bootstrap/base.html" %}
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
 
-{% block title %}Orcumo App{% endblock %}
+{% block header %}
+  <div class="page-header">
+      <h1>Survey!</h1>
+  </div>
+{% endblock %}
+
+{% block panel_content %}
+    {{ wtf.quick_form(form) }}
+{% endblock %}
